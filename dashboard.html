@@ -1,0 +1,181 @@
+<!-- dashboard.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - CryptoClicks</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-gradient-to-br from-gray-900 via-purple-900 to-indigo-900 text-white min-h-screen">
+    <div class="container mx-auto px-4">
+        <header class="flex justify-between items-center py-4 border-b border-purple-500/20">
+            <div class="flex items-center">
+                <div class="w-10 h-10 bg-gradient-to-r from-purple-600 to-indigo-600 rounded-lg flex items-center justify-center mr-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                    </svg>
+                </div>
+                <h1 class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-indigo-400">CryptoClicks</h1>
+            </div>
+            <div class="flex items-center space-x-4">
+                <button id="themeToggle" class="p-2 rounded-lg bg-white/10 hover:bg-white/20">
+                    <svg id="lightIcon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                    </svg>
+                    <svg id="darkIcon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                    </svg>
+                </button>
+                <div class="relative">
+                    <div class="absolute -top-2 -right-2 bg-yellow-400 text-black text-xs w-5 h-5 rounded-full flex items-center justify-center font-bold bonus-badge">B</div>
+                    <div class="bg-gradient-to-r from-purple-600 to-indigo-600 p-0.5 rounded-full">
+                        <div class="bg-black rounded-full p-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-yellow-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="hidden md:block text-right">
+                    <div class="font-medium">teen_user</div>
+                    <div class="text-sm text-gray-400">Level <span id="userLevel">1</span></div>
+                </div>
+                <button id="logoutBtn" class="p-2 rounded-lg bg-white/10 hover:bg-white/20">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3v-1m9 0H3m3 0a2 2 0 010-4m0 4a2 2 0 010 4m0-4v2" />
+                    </svg>
+                </button>
+            </div>
+        </header>
+
+        <main class="py-8">
+            <div class="max-w-4xl mx-auto">
+                <section class="mb-8">
+                    <div class="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-purple-500/20">
+                        <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-4">
+                            <div>
+                                <h2 class="text-2xl font-bold mb-2">Welcome back, teen_user!</h2>
+                                <p class="text-gray-400">Keep earning crypto by completing tasks</p>
+                            </div>
+                            <div class="text-center mt-4 md:mt-0">
+                                <div class="text-2xl font-bold text-yellow-400">$<span id="currentValue">0.0000</span></div>
+                                <div class="text-gray-400">Current Value</div>
+                            </div>
+                        </div>
+                        
+                        <div class="inline-flex items-center bg-yellow-500/20 text-yellow-300 px-4 py-2 rounded-full text-sm font-medium mb-4 bonus-banner">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7" />
+                            </svg>
+                            1.10x Earnings Bonus Active!
+                        </div>
+                    </div>
+                </section>
+
+                <section class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                    <div class="bg-white/5 backdrop-blur-sm rounded-xl p-5 border border-purple-500/20">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <p class="text-gray-400 text-sm">Total Points</p>
+                                <p class="text-2xl font-bold" id="totalPoints">0</p>
+                            </div>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-yellow-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </div>
+                        <div class="mt-3 text-sm text-gray-300">
+                            ≈ $<span id="pointsValue">0.0000</span> USD
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white/5 backdrop-blur-sm rounded-xl p-5 border border-purple-500/20">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <p class="text-gray-400 text-sm">Crypto Balance</p>
+                                <p class="text-2xl font-bold"><span id="cryptoBalance">0.000000</span> ETH</p>
+                            </div>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
+                            </svg>
+                        </div>
+                        <div class="mt-3 text-sm text-gray-300">
+                            +$<span id="dailyInterest">0.000000</span> daily interest
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white/5 backdrop-blur-sm rounded-xl p-5 border border-purple-500/20">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <p class="text-gray-400 text-sm">Referral Status</p>
+                                <p class="text-2xl font-bold" id="referralStatus">INACTIVE</p>
+                            </div>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                            </svg>
+                        </div>
+                        <div class="mt-3 text-sm text-gray-300">
+                            <span id="referralText">Use code to get $0.10 min</span>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-purple-500/20 mb-8">
+                    <div class="flex items-center justify-between cursor-pointer task-header">
+                        <h2 class="text-xl font-bold flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            Complete Tasks to Earn
+                        </h2>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 task-toggle" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </div>
+                    
+                    <div class="task-content hidden mt-4 space-y-4">
+                        <div class="bg-black/20 rounded-lg p-4">
+                            <h3 class="font-bold text-lg mb-2 flex items-center">
+                                <img src="https://placehold.co/24x24/6366F1/FFFFFF?text=BT" class="mr-2 rounded" alt="BitcoTasks">
+                                BitcoTasks
+                            </h3>
+                            <p class="text-gray-300 mb-3">Complete micro-tasks to earn points</p>
+                            <button class="task-btn w-full bg-gradient-to-r from-purple-600 to-indigo-600 text-white px-4 py-2 rounded-lg hover:opacity-90 transition" 
+                                    data-task-type="bitcotasks" data-points="30">
+                                Complete 60s Task (30 points)
+                            </button>
+                        </div>
+                        
+                        <div class="bg-black/20 rounded-lg p-4">
+                            <h3 class="font-bold text-lg mb-2 flex items-center">
+                                <img src="https://placehold.co/24x24/8B5CF6/FFFFFF?text=TW" class="mr-2 rounded" alt="Timewall">
+                                Timewall
+                            </h3>
+                            <p class="text-gray-300 mb-3">Watch ads to earn points over time</p>
+                            <button class="task-btn w-full bg-gradient-to-r from-purple-600 to-indigo-600 text-white px-4 py-2 rounded-lg hover:opacity-90 transition"
+                                    data-task-type="timewall" data-points="12">
+                                Complete 120s Ad (12 points)
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-purple-500/20">
+                    <h2 class="text-xl font-bold mb-4 flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6a2 2 0 012-2h2a2 2 0 012 2v13m-6 0h12" />
+                        </svg>
+                        Recent Activity
+                    </h2>
+                    <div id="activityList" class="space-y-3">
+                        <!-- Activity items will be populated by JavaScript -->
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/dashboard.js"></script>
+</body>
+</html>
